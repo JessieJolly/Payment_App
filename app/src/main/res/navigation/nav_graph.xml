@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeScreenFragment">
+
+    <fragment
+        android:id="@+id/HomeScreenFragment"
+        android:name="com.example.paymentapp.fragment.HomeScreenFragment"
+        android:label="@string/home_screen_fragment_label"
+        tools:layout="@layout/home_screen_fragment">
+
+        <action
+            android:id="@+id/action_HomeScreenFragment_to_TransferToFragment"
+            app:destination="@id/TransferToFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_HomeScreenFragment_to_currentBalanceFragment"
+            app:destination="@id/CurrentBalanceFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/TransferToFragment"
+        android:name="com.example.paymentapp.fragment.TransferToFragment"
+        android:label="@string/transfer_to_fragment"
+        tools:layout="@layout/transfer_to_fragment">
+
+        <action
+            android:id="@+id/action_TransferToFragment_to_HomeScreenFragment"
+            app:destination="@id/HomeScreenFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_TransferToFragment_to_PayAmountFragment"
+            app:destination="@id/PayAmountFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/PayAmountFragment"
+        android:name="com.example.paymentapp.fragment.PayAmountFragment"
+        android:label="Amount"
+        tools:layout="@layout/pay_amount_fragment">
+        <action
+            android:id="@+id/action_PayAmountFragment_to_TransferToFragment"
+            app:destination="@id/TransferToFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_PayAmountFragment_to_ConfirmFragment"
+            app:destination="@id/ConfirmFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/CurrentBalanceFragment"
+        android:name="com.example.paymentapp.fragment.CurrentBalanceFragment"
+        android:label="Current Balance"
+        tools:layout="@layout/current_balance_fragment">
+        <action
+            android:id="@+id/action_CurrentBalanceFragment_to_HomeScreenFragment"
+            app:destination="@id/HomeScreenFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/ConfirmFragment"
+        android:name="com.example.paymentapp.fragment.ConfirmFragment"
+        android:label="Confirm"
+        tools:layout="@layout/confirm_fragment">
+        <action
+            android:id="@+id/action_ConfirmFragment_to_PayAmountFragment"
+            app:destination="@id/PayAmountFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_ConfirmFragment_to_PaymentSuccessfulFragment"
+            app:destination="@id/PaymentSuccessfulFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/PaymentSuccessfulFragment"
+        android:name="com.example.paymentapp.fragment.PaymentSuccessfulFragment"
+        android:label="Payment Successful"
+        tools:layout="@layout/payment_successful_fragment">
+        <action
+            android:id="@+id/action_PaymentSuccessfulFragment_to_HomeScreenFragment"
+            app:destination="@id/HomeScreenFragment" />
+    </fragment>
+</navigation>
